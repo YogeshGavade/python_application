@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>My Bookings</h1>
+<form class="search-form" method="get">
+  <input type="email" name="email" placeholder="Enter your booking email" value="{{ email }}" required />
+  <button type="submit">View</button>
+</form>
+
+{% if email and bookings %}
+  <div class="bookings-list">
+    {% for booking in bookings %}
+      <article class="booking-item">
+        <h3>{{ booking['hotel_name'] }}</h3>
+        <p>{{ booking['area'] }}, {{ booking['city'] }}</p>
+        <p>Guest: {{ booking['guest_name'] }} | Phone: {{ booking['guest_phone'] }}</p>
+        <p>Stay: {{ booking['check_in'] }} to {{ booking['check_out'] }}</p>
+        <p>Rooms: {{ booking['rooms'] }} | Guests: {{ booking['guests'] }}</p>
+        <p><strong>Total Paid:</strong> ₹{{ booking['total_price'] }}</p>
+      </article>
+    {% endfor %}
+  </div>
+{% elif email %}
+  <p>No bookings found for this email.</p>
+{% else %}
+  <p>Enter your email to view confirmed bookings.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f4c81"/>
+      <stop offset="100%" stop-color="#4aa3df"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <circle cx="650" cy="90" r="45" fill="#ffd166"/>
+  <rect x="130" y="220" width="540" height="190" rx="18" fill="#f2f8fc"/>
+  <rect x="180" y="260" width="110" height="80" fill="#b0d0ea"/>
+  <rect x="330" y="260" width="110" height="80" fill="#b0d0ea"/>
+  <rect x="480" y="260" width="110" height="80" fill="#b0d0ea"/>
+  <text x="70" y="70" font-size="44" fill="#ffffff" font-family="Arial" font-weight="bold">Jaipur Stay</text>
+</svg>

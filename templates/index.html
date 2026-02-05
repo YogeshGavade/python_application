@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+  <div>
+    <h1>Find hotels across India</h1>
+    <p>Book comfortable stays in top Indian destinations with transparent pricing and instant confirmation.</p>
+  </div>
+  <img src="{{ url_for('static', filename='img/india-travel.svg') }}" alt="India travel illustration" />
+</section>
+
+<form class="search-form" method="get" action="{{ url_for('home') }}">
+  <select name="city">
+    <option value="">All Cities</option>
+    {% for city in city_options %}
+      <option value="{{ city }}" {% if selected_city == city %}selected{% endif %}>{{ city }}</option>
+    {% endfor %}
+  </select>
+  <input type="date" name="check_in" value="{{ check_in or '' }}" />
+  <input type="date" name="check_out" value="{{ check_out or '' }}" />
+  <input type="number" name="guests" min="1" max="8" value="{{ guests }}" />
+  <button type="submit">Search Hotels</button>
+</form>
+
+<section class="hotel-grid">
+  {% for hotel in hotels %}
+    <article class="hotel-card">
+      <img src="{{ url_for('static', filename='img/' + hotel['image_path']) }}" alt="{{ hotel['name'] }}" />
+      <div class="card-body">
+        <h2>{{ hotel['name'] }}</h2>
+        <p class="location">{{ hotel['area'] }}, {{ hotel['city'] }}</p>
+        <p>{{ hotel['description'] }}</p>
+        <p class="meta">⭐ {{ hotel['rating'] }} • ₹{{ hotel['nightly_price'] }} / night</p>
+        <a class="btn" href="{{ url_for('hotel_details', hotel_id=hotel['id']) }}">View & Book</a>
+      </div>
+    </article>
+  {% else %}
+    <p>No hotels found for the selected filters.</p>
+  {% endfor %}
+</section>
+{% endblock %}

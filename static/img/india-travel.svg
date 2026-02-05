@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320">
+  <rect width="600" height="320" fill="#eef7ff"/>
+  <circle cx="470" cy="80" r="40" fill="#ffd166"/>
+  <rect x="80" y="180" width="440" height="90" rx="12" fill="#c9d6df"/>
+  <rect x="120" y="150" width="80" height="120" fill="#0f4c81"/>
+  <rect x="220" y="120" width="90" height="150" fill="#1f6aa5"/>
+  <rect x="330" y="145" width="85" height="125" fill="#2f7bb5"/>
+  <rect x="430" y="165" width="60" height="105" fill="#4b90c4"/>
+  <path d="M0 270 C 120 230, 240 300, 360 250 C 460 210, 540 280, 600 250 L 600 320 L 0 320 Z" fill="#8ecae6"/>
+  <text x="38" y="58" font-size="34" fill="#0f4c81" font-family="Arial">Explore India</text>
+</svg>
