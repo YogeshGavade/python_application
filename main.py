@@ -1,8 +1,6 @@
-print("hello python")
-print(" helloo this anthony")
+from app import app, init_db
 
-print("This is new comment line")
-print("Hi Yogesh ")
-print("stay Focus")
-print("hello")
-print("hiii")
+
+if __name__ == "__main__":
+    init_db()
+    app.run(debug=True, host="0.0.0.0", port=5000)

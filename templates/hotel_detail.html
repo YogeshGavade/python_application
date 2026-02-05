@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="detail-layout">
+  <div class="detail-card">
+    <img src="{{ url_for('static', filename='img/' + hotel['image_path']) }}" alt="{{ hotel['name'] }}" />
+    <h1>{{ hotel['name'] }}</h1>
+    <p>{{ hotel['area'] }}, {{ hotel['city'] }}</p>
+    <p>{{ hotel['description'] }}</p>
+    <p><strong>Price:</strong> ₹{{ hotel['nightly_price'] }} / night</p>
+    <p><strong>Rating:</strong> {{ hotel['rating'] }} ⭐</p>
+    <ul class="amenities">
+      {% for amenity in hotel['amenities'].split(',') %}
+        <li>{{ amenity }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <form class="booking-form" method="post">
+    <h2>Book this hotel</h2>
+    <input name="guest_name" placeholder="Full Name" required />
+    <input type="email" name="guest_email" placeholder="Email" required />
+    <input name="guest_phone" placeholder="Phone (+91...)" required />
+    <label>Check-in</label>
+    <input type="date" name="check_in" value="{{ default_check_in }}" required />
+    <label>Check-out</label>
+    <input type="date" name="check_out" value="{{ default_check_out }}" required />
+    <label>Rooms</label>
+    <input type="number" name="rooms" min="1" max="5" value="1" required />
+    <label>Guests</label>
+    <input type="number" name="guests" min="1" max="10" value="2" required />
+    <button type="submit">Confirm Booking</button>
+  </form>
+</section>
+{% endblock %}
